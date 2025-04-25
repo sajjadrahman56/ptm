@@ -1,6 +1,3 @@
-  # Store your API key in Streamlit secrets
-GEMINI_API_KEY = ""  # Store your API key in Streamlit secrets
-
 import streamlit as st
 import pandas as pd
 import google.generativeai as genai
@@ -9,7 +6,7 @@ import os
 # New CSV file name
 DATA_FILE = 'ptm_data.csv'
 
-# GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY") 
 
 if not GEMINI_API_KEY:
     st.error("Gemini API key is missing. Please set the GEMINI_API_KEY environment variable or Streamlit secret.")
